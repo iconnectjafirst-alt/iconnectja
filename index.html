@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iConnectJA — Jamaica's Verified Trades Marketplace 🇯🇲</title>
+    <meta name="description" content="Find HEART/NSTA certified tradesmen across all 14 parishes. Electricians, plumbers, painters, mechanics — from Portland to Westmoreland, we connect Jamaica.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Jamaican Flag Colors + Brand */
+            --black: #0A1628;
+            --green: #009B3A;
+            --gold: #FED100;
+            --royal-blue: #0A5FD6;
+            --white: #FFFFFF;
+            --cream: #FFF9E6;
+            --text-muted: #6B7280;
+            
+            /* Accent variations */
+            --gold-dark: #C8A84B;
+            --green-dark: #007A2E;
+            --green-glow: rgba(0, 155, 58, 0.15);
+            --gold-glow: rgba(254, 209, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Jamaican Pattern Overlay */
+        .jamaican-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: 
+                radial-gradient(ellipse at 80% 20%, var(--green-glow) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, var(--gold-glow) 0%, transparent 50%);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, var(--green), var(--gold), var(--green)) 1;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span.i {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .logo span.ja {
+            color: var(--green);
+        }
+
+        .logo .flag {
+            font-size: 1.25rem;
+            margin-left: 0.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.85;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--gold);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            box-shadow: 0 4px 15px rgba(254, 209, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(254, 209, 0, 0.4);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 155, 58, 0.3);
+        }
+
+        .btn-green:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 155, 58, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FED100' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--green-glow), var(--gold-glow));
+            border: 1px solid var(--gold);
+            padding: 0.625rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-badge .flag {
+            font-size: 1.25rem;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .hero h1 .gold {
+            color: var(--gold);
+        }
+
+        .hero h1 .green {
+            color: var(--green);
+        }
+
+        .hero .subhead {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease 0.15s forwards;
+            opacity: 0;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero p strong {
+            color: var(--white);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid;
+            border-image: linear-gradient(90deg, var(--green), var(--gold), transparent) 1;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--gold), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Island Pride Banner */
+        .island-pride {
+            background: linear-gradient(90deg, var(--green), var(--gold), var(--green));
+            padding: 1rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .island-pride p {
+            color: var(--black);
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .island-pride .scroll-text {
+            display: flex;
+            gap: 4rem;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--black);
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 .gold {
+            color: var(--gold);
+        }
+
+        .section-header p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.15rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .step {
+            background: linear-gradient(135deg, rgba(0, 155, 58, 0.1), rgba(254, 209, 0, 0.05));
+            border: 1px solid rgba(254, 209, 0, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green), var(--gold));
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 20px 40px rgba(254, 209, 0, 0.1);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold), var(--green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem;
+            color: var(--black);
+            margin: 0 auto 1.5rem;
+            font-weight: 700;
+        }
+
+        .step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .step p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Trades Section */
+        .trades {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--black) 0%, rgba(0, 155, 58, 0.05) 100%);
+        }
+
+        .trades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .trade-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(254, 209, 0, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .trade-card:hover {
+            background: rgba(254, 209, 0, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .trade-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .trade-card h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .trade-card .parishes {
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-top: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: var(--black);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, rgba(0, 155, 58, 0.08), rgba(254, 209, 0, 0.03));
+            border: 1px solid rgba(254, 209, 0, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-family: 'DM Serif Display', serif;
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.2;
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            line-height: 1;
+        }
+
+        .testimonial p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--green), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-info h5 {
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        .testimonial-info span {
+            color: var(--gold);
+            font-size: 0.85rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='m0 40 40-40H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            position: relative;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .cta .btn {
+            position: relative;
+        }
+
+        /* Signup Section */
+        .signup-section {
+            padding: 6rem 2rem;
+            background: var(--black);
+        }
+
+        .signup-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .signup-container h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .signup-container > p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+
+        .signup-form {
+            background: linear-gradient(135deg, rgba(0, 155, 58, 0.08), rgba(254, 209, 0, 0.05));
+            border: 1px solid rgba(254, 209, 0, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: left;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid rgba(254, 209, 0, 0.3);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            color: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(254, 209, 0, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255,255,255,0.4);
+        }
+
+        .signup-form .btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .form-note {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 8px;
+            color: #25D366;
+            font-weight: 600;
+        }
+
+        /* Parish Map Section */
+        .parishes-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, rgba(0, 155, 58, 0.05) 0%, var(--black) 100%);
+        }
+
+        .parish-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .parish-tag {
+            background: rgba(254, 209, 0, 0.1);
+            border: 1px solid rgba(254, 209, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .parish-tag:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 4rem 2rem 2rem;
+            border-top: 2px solid;
+            border-image: linear-gradient(90deg, var(--green), var(--gold), var(--green)) 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            margin-top: 1rem;
+            max-width: 300px;
+            line-height: 1.7;
+        }
+
+        .footer-brand .jamaican-made {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--green-glow), var(--gold-glow));
+            border: 1px solid var(--gold);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--gold);
+        }
+
+        .footer-column h4 {
+            color: var(--gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-column a {
+            display: block;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom .social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-bottom .social a {
+            color: rgba(255,255,255,0.5);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom .social a:hover {
+            color: var(--gold);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero .subhead {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                max-width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="jamaican-pattern"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="logo">
+            <span class="i">i</span>Connect<span class="ja">JA</span>
+            <span class="flag">🇯🇲</span>
+        </a>
+        <div class="nav-links">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#trades">Find Tradesmen</a>
+            <a href="#for-tradesmen">Join Di Team</a>
+            <a href="https://wa.me/18765015017" class="btn btn-primary">WhatsApp Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="flag">🇯🇲</span>
+                Jamaica's First Verified Trades Platform — From Mobay to Morant Bay
+            </div>
+            <h1>WI BUILD <span class="gold">JAMAICA</span><br>WI VERIFY <span class="green">EXCELLENCE</span></h1>
+            <p class="subhead">CERTIFIED OR NOTHING. ✓</p>
+            <p>Find <strong>HEART/NSTA certified</strong> electricians, plumbers, painters and more — from <strong>Portland to Westmoreland</strong>, we connect Jamaica. Every tradesman verified. Every payment secured through WiPay.</p>
+            <div class="hero-buttons">
+                <a href="#signup" class="btn btn-primary">🔧 Post a Job — It's Free</a>
+                <a href="#for-tradesmen" class="btn btn-green">Join as a Tradesman</a>
+                <a href="https://wa.me/18765015017" class="btn btn-outline">💬 WhatsApp Us</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Parishes Covered</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">HEART Verified</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">WhatsApp Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Island Pride Banner -->
+    <div class="island-pride">
+        <div class="scroll-text">
+            <p>🇯🇲 PROUDLY JAMAICAN • CERTIFIED EXCELLENCE • FROM YARD TO YOUR YARD • REAL TRADESMEN • REAL RESULTS • OUT OF MANY, ONE PLATFORM •</p>
+            <p>🇯🇲 PROUDLY JAMAICAN • CERTIFIED EXCELLENCE • FROM YARD TO YOUR YARD • REAL TRADESMEN • REAL RESULTS • OUT OF MANY, ONE PLATFORM •</p>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Easy Like <span class="gold">Sunday Morning</span></h2>
+                <p>Get your job done in three simple steps — no stress, no fuss</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Tell Wi Wah Yuh Need</h3>
+                    <p>Describe your job, add photos if you have them, and set your budget. Takes less than 2 minutes and it's completely free. No hidden fees.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Verified Quotes</h3>
+                    <p>Certified tradesmen in your parish will send quotes directly to your WhatsApp. Compare ratings, reviews, and prices. Average first response: 14 minutes!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Job Done, Secure Payment</h3>
+                    <p>Choose your tradesman and pay a secure deposit via WiPay. Your money is protected until the job is complete. No more money stress!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trades Section -->
+    <section class="trades" id="trades">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Find Your <span class="gold">Tradesman</span></h2>
+                <p>All verified. All professional. All Jamaican. 🇯🇲</p>
+            </div>
+            <div class="trades-grid">
+                <div class="trade-card">
+                    <div class="trade-icon">⚡</div>
+                    <h4>Electrician</h4>
+                    <p class="parishes">All 14 parishes</p>
+                </div>
+                <div class="trade-card">
+                    <div class="trade-icon">🔧</div>
+                    <h4>Plumber</h4>
+                    <p class="parishes">All 14 parishes</p>
+                </div>
+                <div class="trade-card">
+                    <div class="trade-icon">🎨</div>
+                    <h4>Painter</h4>
+                    <p class="parishes">All 14 parishes</p>
+                </div>
+                <div class="trade-card">
+                    <div class="trade-icon">🚗</div>
+                    <h4>Mobile Mechanic</h4>
+                    <p class="parishes">We come to you!</p>
+                </div>
+                <div class="trade-card">
+                    <div class="trade-icon">🪚</div>
+                    <h4>Carpenter</h4>
+                    <p class="parishes">All 14 parishes</p>
+                </div>
+                <div class="trade-card">
+                    <div class="trade-icon">🧱</div>
+                    <h4>Mason</h4>
+                    <p class="parishes">All 14 parishes</p>
+                </div>
+                <div class="trade-card">
+                    <div class="trade-icon">❄️</div>
+                    <h4>AC Technician</h4>
+                    <p class="parishes">All 14 parishes</p>
+                </div>
+                <div class="trade-card">
+                    <div class="trade-icon">🔩</div>
+                    <h4>Welder</h4>
+                    <p class="parishes">All 14 parishes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>What <span class="gold">Jamaica</span> Says</h2>
+                <p>Real reviews from real Jamaicans</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p>Mi did need a electrician fi mi shop in Half Way Tree and within 30 minutes dem send mi three quotes! The tradesman come same day and sort out everything. Big up iConnectJA!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👨🏿</div>
+                        <div class="testimonial-info">
+                            <h5>Marcus Thompson</h5>
+                            <span>Business Owner, St. Andrew</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>Finally, a platform weh mi can trust! The plumber was certified, professional, and didn't overcharge me. Mi recommend this to all mi family dem.</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👩🏿</div>
+                        <div class="testimonial-info">
+                            <h5>Shanice Brown</h5>
+                            <span>Homeowner, St. Catherine</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>As a HEART-certified electrician, this platform help mi get more clients across the whole of Kingston. The verification badge mek customers trust mi more!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">👨🏿‍🔧</div>
+                        <div class="testimonial-info">
+                            <h5>Devon Williams</h5>
+                            <span>Certified Electrician, Kingston</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parishes Section -->
+    <section class="parishes-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Island-Wide <span class="gold">Coverage</span> 🇯🇲</h2>
+                <p>From Blue Mountain Peak to Negril Beach — we've got Jamaica covered</p>
+            </div>
+            <div class="parish-grid">
+                <span class="parish-tag">Kingston</span>
+                <span class="parish-tag">St. Andrew</span>
+                <span class="parish-tag">St. Catherine</span>
+                <span class="parish-tag">Clarendon</span>
+                <span class="parish-tag">Manchester</span>
+                <span class="parish-tag">St. Elizabeth</span>
+                <span class="parish-tag">Westmoreland</span>
+                <span class="parish-tag">Hanover</span>
+                <span class="parish-tag">St. James</span>
+                <span class="parish-tag">Trelawny</span>
+                <span class="parish-tag">St. Ann</span>
+                <span class="parish-tag">St. Mary</span>
+                <span class="parish-tag">Portland</span>
+                <span class="parish-tag">St. Thomas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="for-tradesmen">
+        <h2>Yuh Certified? Join Di Movement! 🔧</h2>
+        <p>HEART/NSTA certified tradesmen — get more jobs, get paid faster, build your reputation across Jamaica.</p>
+        <a href="https://wa.me/18765015017?text=Hi%20iConnectJA!%20I'm%20a%20certified%20tradesman%20and%20I%20want%20to%20join%20the%20platform." class="btn btn-primary">WhatsApp to Join — Free</a>
+    </section>
+
+    <!-- Signup Section -->
+    <section class="signup-section" id="signup">
+        <div class="signup-container">
+            <h2>Post Your Job <span style="color: var(--gold)">Today</span></h2>
+            <p>It's free to post. Only pay when you hire. No stress!</p>
+            <form class="signup-form" action="https://wa.me/18765015017" method="GET">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="e.g. Marcus Brown">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">WhatsApp Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="876-555-1234">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="trade">What Trade Yuh Need?</label>
+                    <select id="trade" name="trade" required>
+                        <option value="">Select a trade...</option>
+                        <option value="electrician">⚡ Electrician</option>
+                        <option value="plumber">🔧 Plumber</option>
+                        <option value="painter">🎨 Painter</option>
+                        <option value="mechanic">🚗 Mobile Mechanic</option>
+                        <option value="carpenter">🪚 Carpenter</option>
+                        <option value="mason">🧱 Mason</option>
+                        <option value="ac">❄️ AC Technician</option>
+                        <option value="welder">🔩 Welder</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="parish">Your Parish</label>
+                    <select id="parish" name="parish" required>
+                        <option value="">Select parish...</option>
+                        <option value="kingston">Kingston</option>
+                        <option value="st-andrew">St. Andrew</option>
+                        <option value="st-catherine">St. Catherine</option>
+                        <option value="clarendon">Clarendon</option>
+                        <option value="manchester">Manchester</option>
+                        <option value="st-elizabeth">St. Elizabeth</option>
+                        <option value="westmoreland">Westmoreland</option>
+                        <option value="hanover">Hanover</option>
+                        <option value="st-james">St. James</option>
+                        <option value="trelawny">Trelawny</option>
+                        <option value="st-ann">St. Ann</option>
+                        <option value="st-mary">St. Mary</option>
+                        <option value="portland">Portland</option>
+                        <option value="st-thomas">St. Thomas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Tell Wi More (Optional)</label>
+                    <textarea id="description" name="description" rows="3" placeholder="Describe your job... e.g. Need to fix a leaky pipe in my bathroom"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">📱 Send via WhatsApp</button>
+                <div class="whatsapp-note">
+                    <span>💬</span> We'll respond within minutes on WhatsApp!
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <span class="i">i</span>Connect<span class="ja">JA</span>
+                    <span class="flag">🇯🇲</span>
+                </a>
+                <p>Jamaica's first verified trades marketplace. Certified tradesmen. Secure payments. Island-wide coverage. From yard to your yard!</p>
+                <div class="jamaican-made">
+                    🇯🇲 Proudly Jamaican Made
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Platform</h4>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#trades">Find Tradesmen</a>
+                <a href="#signup">Post a Job</a>
+            </div>
+            <div class="footer-column">
+                <h4>Tradesmen</h4>
+                <a href="#for-tradesmen">Join iConnectJA</a>
+                <a href="#">Pricing</a>
+                <a href="#">Get Verified</a>
+            </div>
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <a href="https://wa.me/18765015017">💬 WhatsApp</a>
+                <a href="mailto:hello@iconnectja.net">📧 Email Us</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 iConnectJA Technologies Ltd. A Cornerstone Group JA Company. 🇯🇲</p>
+            <p>Made with ❤️ in Jamaica</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form handler - redirects to WhatsApp with message
+        document.querySelector('.signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const trade = document.getElementById('trade').value;
+            const parish = document.getElementById('parish').value;
+            const description = document.getElementById('description').value;
+            
+            const message = `🔧 NEW JOB REQUEST from iConnectJA.net
+
+👤 Name: ${name}
+📱 Phone: ${phone}
+🛠️ Trade Needed: ${trade}
+📍 Parish: ${parish}
+📝 Details: ${description || 'Not provided'}
+
+Please connect me with a verified tradesman!`;
+            
+            const whatsappUrl = `https://wa.me/18765015017?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
