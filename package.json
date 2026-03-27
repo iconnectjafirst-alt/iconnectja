@@ -1,0 +1,24 @@
+{
+  "name": "iconnectja",
+  "version": "1.0.0",
+  "description": "Jamaica's Verified Trades Marketplace - Find HEART/NSTA certified tradesmen",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://x-access-token:ghs_HbggvhI9uQhWPgtehbYWI1vW6BXmDm3K9Ve9@github.com/iconnectjafirst-alt/iconnectja.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iconnectjafirst-alt/iconnectja/issues"
+  },
+  "homepage": "https://github.com/iconnectjafirst-alt/iconnectja#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
