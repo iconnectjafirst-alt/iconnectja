@@ -1,0 +1,27 @@
+{
+  "name": "iConnectJA — Jamaica's Verified Trades Platform",
+  "short_name": "iConnectJA",
+  "description": "Find HEART/NSTA certified tradesmen across all 14 parishes. Jamaica's first verified trades marketplace.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D1B2A",
+  "theme_color": "#0D1B2A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "lang": "en-JM",
+  "dir": "ltr"
+}
