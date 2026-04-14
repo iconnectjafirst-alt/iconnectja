@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — iConnectJA 🇯🇲</title>
+    <meta name="description" content="Simple, transparent pricing for tradesmen on iConnectJA. Start free, grow your business across all 14 parishes.">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0A1628">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0A1628;
+            --green: #009B3A;
+            --gold: #FED100;
+            --royal-blue: #0A5FD6;
+            --white: #FFFFFF;
+            --gold-dark: #C8A84B;
+            --green-dark: #007A2E;
+            --green-glow: rgba(0, 155, 58, 0.15);
+            --gold-glow: rgba(254, 209, 0, 0.15);
+            --muted: rgba(255,255,255,0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .jamaican-pattern {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none; z-index: 0;
+            background:
+                radial-gradient(ellipse at 80% 20%, var(--green-glow) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, var(--gold-glow) 0%, transparent 50%);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid;
+            border-image: linear-gradient(90deg, var(--green), var(--gold), var(--green)) 1;
+        }
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem; color: var(--white);
+            text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .logo span.i  { color: var(--gold); }
+        .logo span.ja { color: var(--green); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a {
+            color: var(--white); text-decoration: none;
+            font-size: 0.95rem; font-weight: 500; opacity: 0.85; transition: all 0.3s;
+        }
+        .nav-links a:hover { opacity: 1; color: var(--gold); }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            padding: 0.875rem 1.75rem; border-radius: 6px;
+            font-weight: 700; font-size: 0.95rem; text-decoration: none;
+            transition: all 0.3s; cursor: pointer; border: none;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            font-family: 'Figtree', sans-serif;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black); box-shadow: 0 4px 15px rgba(254,209,0,0.3);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(254,209,0,0.4); }
+        .btn-green {
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: var(--white); box-shadow: 0 4px 15px rgba(0,155,58,0.3);
+        }
+        .btn-green:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,155,58,0.4); }
+        .btn-outline {
+            background: transparent; color: var(--white); border: 2px solid var(--gold);
+        }
+        .btn-outline:hover { background: var(--gold); color: var(--black); }
+
+        /* ── HERO ── */
+        .pricing-hero {
+            padding: 9rem 2rem 5rem;
+            text-align: center; position: relative; z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: linear-gradient(135deg, var(--green-glow), var(--gold-glow));
+            border: 1px solid var(--gold);
+            padding: 0.625rem 1.25rem; border-radius: 100px;
+            font-size: 0.9rem; font-weight: 600; color: var(--gold);
+            margin-bottom: 2rem;
+        }
+        .pricing-hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1; margin-bottom: 1rem;
+        }
+        .pricing-hero h1 .gold  { color: var(--gold); }
+        .pricing-hero h1 .green { color: var(--green); }
+        .pricing-hero p {
+            font-size: 1.2rem; color: var(--muted);
+            max-width: 560px; margin: 0 auto 1rem;
+        }
+        .pricing-hero .free-note {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(0,155,58,0.15); border: 1px solid rgba(0,155,58,0.4);
+            color: #4ade80; padding: 0.5rem 1.25rem; border-radius: 100px;
+            font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem;
+        }
+
+        /* ── SECTION CONTAINER ── */
+        .section-container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+        /* ── WHO PAYS WHAT ── */
+        .who-pays { padding: 2rem 2rem 4rem; }
+        .who-pays-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+            max-width: 800px; margin: 0 auto;
+        }
+        .who-pays-card {
+            background: linear-gradient(135deg, rgba(0,155,58,0.08), rgba(254,209,0,0.04));
+            border: 1px solid rgba(254,209,0,0.2);
+            border-radius: 16px; padding: 2rem; text-align: center;
+        }
+        .who-pays-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .who-pays-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--gold); }
+        .who-pays-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+        .who-pays-card .free-tag {
+            display: inline-block; margin-top: 1rem;
+            background: var(--green); color: var(--white);
+            font-weight: 700; font-size: 0.85rem;
+            padding: 0.3rem 1rem; border-radius: 20px;
+        }
+
+        /* ── TRADESMAN PRICING CARDS ── */
+        .plans { padding: 2rem 2rem 5rem; }
+        .plans-header { text-align: center; margin-bottom: 3rem; }
+        .plans-header h2 { font-family: 'DM Serif Display', serif; font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .plans-header h2 .gold { color: var(--gold); }
+        .plans-header p { color: var(--muted); font-size: 1.05rem; }
+
+        .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+        .plan-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(254,209,0,0.2);
+            border-radius: 20px; padding: 2.5rem 2rem;
+            display: flex; flex-direction: column;
+            transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .plan-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--green), var(--gold));
+        }
+        .plan-card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: 0 20px 50px rgba(254,209,0,0.1); }
+
+        /* Featured plan */
+        .plan-card.featured {
+            background: linear-gradient(135deg, rgba(0,155,58,0.12), rgba(254,209,0,0.08));
+            border-color: var(--gold);
+            box-shadow: 0 0 0 1px var(--gold), 0 20px 50px rgba(254,209,0,0.15);
+            transform: scale(1.03);
+        }
+        .plan-card.featured:hover { transform: scale(1.03) translateY(-6px); }
+        .plan-card.featured::before { height: 5px; }
+
+        .plan-badge {
+            display: inline-block;
+            background: var(--gold); color: var(--black);
+            font-weight: 800; font-size: 0.72rem;
+            padding: 0.25rem 0.8rem; border-radius: 20px;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 1.25rem;
+        }
+        .plan-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem; margin-bottom: 0.5rem;
+        }
+        .plan-desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.75rem; line-height: 1.5; }
+        .plan-price {
+            margin-bottom: 0.5rem;
+        }
+        .plan-price .amount {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem; color: var(--gold); line-height: 1;
+        }
+        .plan-price .currency { font-size: 1.2rem; font-weight: 700; vertical-align: super; }
+        .plan-price .period { font-size: 0.9rem; color: var(--muted); margin-left: 0.25rem; }
+        .plan-savings {
+            display: inline-block;
+            background: rgba(0,155,58,0.2); border: 1px solid rgba(0,155,58,0.4);
+            color: #4ade80; font-size: 0.8rem; font-weight: 600;
+            padding: 0.2rem 0.75rem; border-radius: 20px;
+            margin-bottom: 1.75rem;
+        }
+        .plan-divider {
+            border: none; border-top: 1px solid rgba(255,255,255,0.1);
+            margin: 0 0 1.75rem;
+        }
+        .plan-features { list-style: none; flex: 1; }
+        .plan-features li {
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            font-size: 0.92rem; color: rgba(255,255,255,0.8);
+            margin-bottom: 0.85rem; line-height: 1.5;
+        }
+        .plan-features li .check { color: var(--green); font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+        .plan-features li .cross { color: rgba(255,255,255,0.25); font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+        .plan-cta { margin-top: 2rem; }
+        .plan-cta .btn { width: 100%; justify-content: center; padding: 1rem; font-size: 1rem; }
+        .plan-cta .plan-note { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; }
+
+        /* ── ADD-ONS ── */
+        .addons { padding: 2rem 2rem 5rem; }
+        .addons-header { text-align: center; margin-bottom: 3rem; }
+        .addons-header h2 { font-family: 'DM Serif Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .addons-header h2 .gold { color: var(--gold); }
+        .addons-header p { color: var(--muted); font-size: 1rem; }
+
+        .addons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .addon-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(254,209,0,0.15);
+            border-radius: 14px; padding: 1.75rem;
+            transition: all 0.3s;
+        }
+        .addon-card:hover { border-color: var(--gold); background: rgba(254,209,0,0.05); transform: translateY(-3px); }
+        .addon-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .addon-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .addon-card .addon-price { color: var(--gold); font-weight: 800; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .addon-card p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+
+        /* ── COMMISSION SECTION ── */
+        .commission { padding: 2rem 2rem 5rem; }
+        .commission-box {
+            background: linear-gradient(135deg, rgba(0,155,58,0.1), rgba(254,209,0,0.06));
+            border: 1px solid rgba(254,209,0,0.25);
+            border-radius: 20px; padding: 3rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+            align-items: center; max-width: 900px; margin: 0 auto;
+        }
+        .commission-text h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; margin-bottom: 1rem; }
+        .commission-text h2 .gold { color: var(--gold); }
+        .commission-text p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+        .commission-example {
+            background: rgba(10,22,40,0.6);
+            border: 1px solid rgba(254,209,0,0.2);
+            border-radius: 14px; padding: 1.75rem;
+        }
+        .commission-example h4 { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; }
+        .commission-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+            font-size: 0.9rem;
+        }
+        .commission-row:last-child { border-bottom: none; }
+        .commission-row .label { color: var(--muted); }
+        .commission-row .value { font-weight: 700; }
+        .commission-row .value.gold { color: var(--gold); }
+        .commission-row .value.green { color: #4ade80; }
+        .commission-row .value.blue { color: #60a5fa; }
+
+        /* ── FAQ ── */
+        .faq { padding: 2rem 2rem 5rem; }
+        .faq-header { text-align: center; margin-bottom: 3rem; }
+        .faq-header h2 { font-family: 'DM Serif Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .faq-header h2 .gold { color: var(--gold); }
+
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; max-width: 900px; margin: 0 auto; }
+        .faq-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(254,209,0,0.15);
+            border-radius: 12px; padding: 1.5rem;
+        }
+        .faq-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--gold); }
+        .faq-item p { color: var(--muted); font-size: 0.88rem; line-height: 1.65; }
+
+        /* ── CTA ── */
+        .pricing-cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .pricing-cta::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='m0 40 40-40H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        .pricing-cta h2 { font-family: 'DM Serif Display', serif; font-size: 2.5rem; margin-bottom: 1rem; position: relative; }
+        .pricing-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--black); padding: 3rem 2rem 2rem;
+            border-top: 2px solid;
+            border-image: linear-gradient(90deg, var(--green), var(--gold), var(--green)) 1;
+        }
+        .footer-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1.5rem;
+        }
+        .footer-inner p { color: var(--muted); font-size: 0.85rem; }
+        .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--gold); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .plans-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+            .plan-card.featured { transform: none; }
+            .addons-grid { grid-template-columns: 1fr 1fr; }
+            .commission-box { grid-template-columns: 1fr; gap: 2rem; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .who-pays-grid { grid-template-columns: 1fr; max-width: 420px; }
+        }
+        @media (max-width: 640px) {
+            nav { padding: 1rem; }
+            .nav-links { display: none; }
+            .addons-grid { grid-template-columns: 1fr; }
+            .pricing-hero { padding: 7rem 1.5rem 3rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="jamaican-pattern"></div>
+
+    <!-- Nav -->
+    <nav>
+        <a href="/" class="logo"><span class="i">i</span>Connect<span class="ja">JA</span> 🇯🇲</a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#how-it-works">How It Works</a>
+            <a href="/#trades">Find Tradesmen</a>
+            <a href="https://wa.me/18765015017" class="btn btn-primary">WhatsApp Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="pricing-hero">
+        <div class="hero-badge">🇯🇲 Transparent Pricing — No Surprises</div>
+        <h1>Simple Pricing.<br><span class="gold">Real</span> Value for <span class="green">Jamaica</span>.</h1>
+        <p>Built for Jamaican tradesmen and homeowners. No hidden fees. No confusing tiers. Pay only when the platform works for you.</p>
+        <div class="free-note">✅ Free for Residents to Post Jobs — Always</div>
+    </div>
+
+    <!-- Who pays what -->
+    <section class="who-pays">
+        <div class="section-container">
+            <div class="who-pays-grid">
+                <div class="who-pays-card">
+                    <div class="icon">🏠</div>
+                    <h3>Residents & Homeowners</h3>
+                    <p>Posting a job is completely free. You only pay a small platform fee when you hire a tradesman and a deposit is confirmed through WiPay.</p>
+                    <span class="free-tag">Free to Post Jobs</span>
+                </div>
+                <div class="who-pays-card">
+                    <div class="icon">🔧</div>
+                    <h3>Certified Tradesmen</h3>
+                    <p>A monthly subscription keeps your profile visible to thousands of residents across your parish and trade category. Cancel any time.</p>
+                    <span class="free-tag">First Month Free</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tradesman Plans -->
+    <section class="plans" id="tradesman-plans">
+        <div class="section-container">
+            <div class="plans-header">
+                <h2>Tradesman <span class="gold">Plans</span></h2>
+                <p>Choose monthly or save 2 months with an annual plan. All plans require a valid HEART/NSTA certificate.</p>
+            </div>
+            <div class="plans-grid">
+
+                <!-- Monthly -->
+                <div class="plan-card">
+                    <div class="plan-name">Monthly</div>
+                    <div class="plan-desc">Flexible. Pay month to month. No long-term commitment required.</div>
+                    <div class="plan-price">
+                        <span class="currency">J$</span>
+                        <span class="amount">1,500</span>
+                        <span class="period">/ month</span>
+                    </div>
+                    <div style="height:2rem;"></div>
+                    <hr class="plan-divider">
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> Verified HEART/NSTA badge on profile</li>
+                        <li><span class="check">✓</span> Appear in job feed for your trade + parish</li>
+                        <li><span class="check">✓</span> Unlimited job bids per month</li>
+                        <li><span class="check">✓</span> WhatsApp notifications for matching jobs</li>
+                        <li><span class="check">✓</span> Public profile with ratings & reviews</li>
+                        <li><span class="check">✓</span> 3-day grace period if payment is late</li>
+                        <li><span class="cross">✗</span> No profile boost included</li>
+                        <li><span class="cross">✗</span> Standard placement in feed</li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a href="https://wa.me/18765015017?text=Hi%20iConnectJA!%20I%20want%20to%20join%20on%20the%20Monthly%20plan." class="btn btn-outline">Get Started</a>
+                        <p class="plan-note">Billed monthly via WiPay Jamaica</p>
+                    </div>
+                </div>
+
+                <!-- Annual — FEATURED -->
+                <div class="plan-card featured">
+                    <div class="plan-badge">⭐ Most Popular</div>
+                    <div class="plan-name">Annual</div>
+                    <div class="plan-desc">Best value. Pay once, grow all year. Two months completely free.</div>
+                    <div class="plan-price">
+                        <span class="currency">J$</span>
+                        <span class="amount">15,000</span>
+                        <span class="period">/ year</span>
+                    </div>
+                    <div class="plan-savings">💰 Save J$3,000 — 2 months free</div>
+                    <hr class="plan-divider">
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> Verified HEART/NSTA badge on profile</li>
+                        <li><span class="check">✓</span> Appear in job feed for your trade + parish</li>
+                        <li><span class="check">✓</span> Unlimited job bids per month</li>
+                        <li><span class="check">✓</span> WhatsApp notifications for matching jobs</li>
+                        <li><span class="check">✓</span> Public profile with ratings & reviews</li>
+                        <li><span class="check">✓</span> <strong>1 free profile boost per quarter</strong></li>
+                        <li><span class="check">✓</span> Priority customer support</li>
+                        <li><span class="check">✓</span> <strong>Annual member badge on profile</strong></li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a href="https://wa.me/18765015017?text=Hi%20iConnectJA!%20I%20want%20to%20join%20on%20the%20Annual%20plan." class="btn btn-primary">Get Started — Save J$3,000</a>
+                        <p class="plan-note">One-time annual payment via WiPay Jamaica</p>
+                    </div>
+                </div>
+
+                <!-- Corporate -->
+                <div class="plan-card">
+                    <div class="plan-name">Corporate</div>
+                    <div class="plan-desc">For property managers, contractors, and businesses with ongoing maintenance needs.</div>
+                    <div class="plan-price">
+                        <span class="amount" style="font-size:2rem;">J$15K–50K</span>
+                        <span class="period">/ month</span>
+                    </div>
+                    <div style="height:2rem;"></div>
+                    <hr class="plan-divider">
+                    <ul class="plan-features">
+                        <li><span class="check">✓</span> Dedicated account manager</li>
+                        <li><span class="check">✓</span> Bulk job posting across multiple properties</li>
+                        <li><span class="check">✓</span> Priority tradesman matching</li>
+                        <li><span class="check">✓</span> Monthly invoicing available</li>
+                        <li><span class="check">✓</span> Custom SLA for response times</li>
+                        <li><span class="check">✓</span> Team access (multiple users)</li>
+                        <li><span class="check">✓</span> Monthly performance reports</li>
+                        <li><span class="check">✓</span> Reduced platform commission rate</li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a href="https://wa.me/18765015017?text=Hi%20iConnectJA!%20I%20want%20to%20discuss%20a%20Corporate%20account." class="btn btn-green">Contact Us</a>
+                        <p class="plan-note">Custom pricing — WhatsApp us to discuss</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Add-ons -->
+    <section class="addons">
+        <div class="section-container">
+            <div class="addons-header">
+                <h2>Optional <span class="gold">Add-Ons</span></h2>
+                <p>Boost your visibility when you need it most. No pressure — these are optional extras.</p>
+            </div>
+            <div class="addons-grid">
+                <div class="addon-card">
+                    <div class="addon-icon">🚀</div>
+                    <h4>Profile Boost</h4>
+                    <div class="addon-price">J$3,000 / week</div>
+                    <p>Pin your profile to the top of search results in your trade category for 7 days. Get seen first by residents posting jobs in your parish.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">⭐</div>
+                    <h4>Priority Job Post</h4>
+                    <div class="addon-price">J$500 / job</div>
+                    <p>For residents — bump your job to the top of the tradesman feed. Get bids faster when you need work done urgently.</p>
+                </div>
+                <div class="addon-card">
+                    <div class="addon-icon">🔍</div>
+                    <h4>Background Check</h4>
+                    <div class="addon-price">J$2,000–3,000</div>
+                    <p>Enhanced verification for tradesmen. Includes police record check. Earns a special Enhanced Verified badge — builds deeper trust with residents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission explained -->
+    <section class="commission">
+        <div class="section-container">
+            <div class="commission-box">
+                <div class="commission-text">
+                    <h2>How the <span class="gold">Commission</span> Works</h2>
+                    <p>When a resident hires a tradesman and pays a deposit, iConnectJA takes a small platform fee. This covers our verification, matching, and secure payment processing.</p>
+                    <p>The deposit is held in escrow by WiPay Jamaica and released to the tradesman only when the job is marked complete. Your money is always protected.</p>
+                    <p style="color: #4ade80; font-weight: 600;">✓ Residents pay: 8% platform fee added at checkout<br>✓ Tradesmen receive: full job value minus subscription fee</p>
+                </div>
+                <div class="commission-example">
+                    <h4>📋 Example — J$20,000 Plumbing Job</h4>
+                    <div class="commission-row">
+                        <span class="label">Job value agreed</span>
+                        <span class="value">J$20,000</span>
+                    </div>
+                    <div class="commission-row">
+                        <span class="label">Platform fee (8%)</span>
+                        <span class="value" style="color:#ff8888;">+ J$1,600</span>
+                    </div>
+                    <div class="commission-row">
+                        <span class="label">Resident pays total</span>
+                        <span class="value gold">J$21,600</span>
+                    </div>
+                    <div class="commission-row">
+                        <span class="label">Tradesman receives</span>
+                        <span class="value green">J$20,000</span>
+                    </div>
+                    <div class="commission-row">
+                        <span class="label">Paid within</span>
+                        <span class="value blue">24 hrs of completion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-container">
+            <div class="faq-header">
+                <h2>Common <span class="gold">Questions</span></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Is it really free to post a job?</h4>
+                    <p>Yes — completely free. Residents pay a platform fee only when they hire a tradesman and confirm a deposit. No credit card needed to post.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>When do I get paid as a tradesman?</h4>
+                    <p>Within 24 hours of the resident marking the job complete. Funds are held securely in WiPay escrow until then. No waiting weeks for a cheque.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What if I need to cancel my subscription?</h4>
+                    <p>Cancel any time. Your profile stays visible until the end of your billing period. No cancellation fees, no runaround.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do I need a HEART/NSTA certificate?</h4>
+                    <p>Yes — all tradesmen on iConnectJA must hold a valid HEART/NSTA certificate in their trade. This is what makes our verification meaningful and protects homeowners.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What happens if there's a dispute?</h4>
+                    <p>Raise a dispute within 48 hours of the agreed completion date. iConnectJA reviews both sides and issues a decision within 5 business days. Refunds processed in 3–5 business days.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Is WiPay safe to use?</h4>
+                    <p>Yes. WiPay Jamaica is a PCI-DSS compliant payment processor. We never store your card details. All transactions are encrypted and secured by WiPay's infrastructure.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I operate in multiple parishes?</h4>
+                    <p>Yes — your profile can cover multiple parishes within the same subscription. You'll receive job notifications for every parish you select when setting up your profile.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How do I get my first month free?</h4>
+                    <p>WhatsApp us to join. The first month is free for all new HEART-certified tradesmen who complete profile verification within 7 days of signing up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pricing-cta">
+        <h2>Ready to Grow Yuh Business? 🔧</h2>
+        <p>Join iConnectJA today. First month free for HEART/NSTA certified tradesmen.</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/18765015017?text=Hi%20iConnectJA!%20I'm%20a%20HEART-certified%20tradesman%20and%20I%20want%20to%20join%20the%20platform." class="btn btn-primary">💬 WhatsApp to Join — First Month Free</a>
+            <a href="/" class="btn btn-outline">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <p>© 2026 iConnectJA — a trading name of Frontier Logistics Limited. Registered in Jamaica. 🇯🇲</p>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+                <a href="mailto:hello@iconnectja.net">📧 Email</a>
+                <a href="https://wa.me/18765015017">💬 WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
