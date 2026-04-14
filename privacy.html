@@ -1,450 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | iConnectJA</title>
-    <meta name="description" content="Privacy Policy for iConnectJA - How we collect, use, and protect your personal data under Jamaica's Data Protection Act 2020.">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --navy: #0A1628;
-            --gold: #C8A84B;
-            --blue: #0A5FD6;
-            --green: #1A7A3C;
-            --white: #FFFFFF;
-            --gray-100: #F8F9FA;
-            --gray-600: #6B7280;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Figtree', sans-serif;
-            color: var(--navy);
-            line-height: 1.7;
-            background: var(--white);
-        }
-        
-        header {
-            background: var(--navy);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .logo {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.5rem;
-            color: var(--white);
-            text-decoration: none;
-        }
-        
-        .logo span {
-            color: var(--gold);
-        }
-        
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem 5rem;
-        }
-        
-        h1 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 2.5rem;
-            color: var(--navy);
-            margin-bottom: 0.5rem;
-        }
-        
-        .effective-date {
-            color: var(--gray-600);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-        
-        h2 {
-            font-family: 'DM Serif Display', serif;
-            font-size: 1.5rem;
-            color: var(--navy);
-            margin: 2.5rem 0 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #E5E7EB;
-        }
-        
-        h2:first-of-type {
-            border-top: none;
-            margin-top: 2rem;
-        }
-        
-        h3 {
-            font-size: 1.1rem;
-            color: var(--navy);
-            margin: 1.5rem 0 0.75rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        ul, ol {
-            margin: 1rem 0 1rem 1.5rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        a {
-            color: var(--blue);
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .highlight-box {
-            background: var(--gray-100);
-            border-left: 4px solid var(--gold);
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .highlight-box.green {
-            border-left-color: var(--green);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-        
-        th, td {
-            text-align: left;
-            padding: 0.75rem 1rem;
-            border: 1px solid #E5E7EB;
-        }
-        
-        th {
-            background: var(--gray-100);
-            font-weight: 600;
-        }
-        
-        footer {
-            background: var(--navy);
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        footer a {
-            color: var(--gold);
-        }
-        
-        @media (max-width: 640px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.25rem; }
-            main { padding: 2rem 1rem 3rem; }
-            table { font-size: 0.9rem; }
-            th, td { padding: 0.5rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — iConnectJA</title>
+  <meta name="description" content="iConnectJA Privacy Policy — How we collect, use and protect your personal data under the Data Protection Act 2020.">
+  <link rel="icon" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0D1B2A;
+      --blue: #1B4F8A;
+      --gold: #F4B942;
+      --white: #FFFFFF;
+      --light: #F8F9FA;
+      --text: #2C3E50;
+      --muted: #6C757D;
+      --border: #E9ECEF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--text); }
+
+    /* NAV */
+    nav {
+      background: var(--navy);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* HERO BANNER */
+    .policy-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .policy-hero .badge {
+      display: inline-block;
+      background: rgba(244,185,66,0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .policy-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .policy-hero p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .policy-meta {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .policy-meta .meta-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .policy-meta .meta-item strong { color: var(--white); display: block; font-size: 0.9rem; }
+
+    /* LAYOUT */
+    .policy-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    /* TABLE OF CONTENTS */
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+    }
+    .toc h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .toc ol { padding-left: 1.2rem; }
+    .toc li { margin-bottom: 0.4rem; }
+    .toc a { color: var(--blue); text-decoration: none; font-size: 0.9rem; }
+    .toc a:hover { color: var(--gold); text-decoration: underline; }
+
+    /* SECTIONS */
+    .policy-section {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .policy-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .policy-section h3 {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy);
+      margin: 1.5rem 0 0.75rem;
+    }
+    .policy-section p {
+      line-height: 1.75;
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+    .policy-section ul {
+      padding-left: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .policy-section ul li {
+      line-height: 1.7;
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 0.4rem;
+    }
+    .policy-section ul li strong { color: var(--navy); }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: #FFF8E7;
+      border: 1px solid #F4B942;
+      border-radius: 8px;
+      padding: 1rem 1.4rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #5a4a00;
+    }
+    .highlight-box strong { color: #3d3200; }
+
+    /* DATA TABLE */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 1rem 0;
+    }
+    .data-table th {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .data-table tr:nth-child(even) td { background: var(--light); }
+
+    /* CONTACT CARD */
+    .contact-card {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 12px;
+      padding: 2rem;
+      color: var(--white);
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .contact-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .contact-card p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 1.2rem; }
+    .contact-card a {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: transform 0.2s;
+    }
+    .contact-card a:hover { transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .policy-hero h1 { font-size: 1.8rem; }
+      .policy-section { padding: 1.5rem; }
+      .policy-container { padding: 2rem 1rem 4rem; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="/" class="logo">iConnect<span>JA</span></a>
-    </header>
-    
-    <main>
-        <h1>Privacy Policy</h1>
-        <p class="effective-date">Effective Date: March 28, 2026</p>
-        
-        <div class="highlight-box green">
-            <strong>Jamaica Data Protection Act 2020 Compliance:</strong> This Privacy Policy is designed to comply with the Jamaica Data Protection Act 2020 (DPA 2020). We are committed to protecting your personal data and respecting your privacy rights.
-        </div>
-        
-        <h2>1. Introduction</h2>
-        <p>iConnectJA ("we," "our," or "us") is a trading name of Frontier Logistics Limited, registered in Jamaica. We operate the iConnectJA platform at <a href="https://iconnectja.net">iconnectja.net</a>, connecting Jamaican homeowners with verified, certified tradesmen.</p>
-        <p>This Privacy Policy explains how we collect, use, store, and protect your personal data when you use our Platform, in accordance with the Jamaica Data Protection Act 2020.</p>
-        
-        <h2>2. Data Controller</h2>
-        <p>The data controller responsible for your personal data is:</p>
-        <p>
-            <strong>Frontier Logistics Limited</strong><br>
-            Trading as iConnectJA<br>
-            Jamaica<br>
-            Email: <a href="mailto:privacy@iconnectja.net">privacy@iconnectja.net</a>
-        </p>
-        
-        <h2>3. Personal Data We Collect</h2>
-        <p>We collect and process the following categories of personal data:</p>
-        
-        <h3>3.1 Information You Provide</h3>
-        <table>
-            <tr>
-                <th>Data Type</th>
-                <th>Examples</th>
-                <th>Purpose</th>
-            </tr>
-            <tr>
-                <td>Identity Data</td>
-                <td>Full name, date of birth</td>
-                <td>Account creation, verification</td>
-            </tr>
-            <tr>
-                <td>Contact Data</td>
-                <td>Mobile phone number, email address, parish, address</td>
-                <td>Communication, service delivery</td>
-            </tr>
-            <tr>
-                <td>Verification Data (Tradesmen)</td>
-                <td>HEART/NSTA certificates, TRN, National ID</td>
-                <td>Certification verification</td>
-            </tr>
-            <tr>
-                <td>Financial Data</td>
-                <td>Bank account details, payment card information (processed by WiPay)</td>
-                <td>Payment processing</td>
-            </tr>
-            <tr>
-                <td>Profile Data</td>
-                <td>Profile photo, trade skills, work experience, portfolio images</td>
-                <td>Platform features</td>
-            </tr>
-            <tr>
-                <td>Job Data</td>
-                <td>Job descriptions, location, photos, communications</td>
-                <td>Service facilitation</td>
-            </tr>
-        </table>
-        
-        <h3>3.2 Information We Collect Automatically</h3>
-        <table>
-            <tr>
-                <th>Data Type</th>
-                <th>Examples</th>
-                <th>Purpose</th>
-            </tr>
-            <tr>
-                <td>Device Data</td>
-                <td>IP address, device type, browser type, operating system</td>
-                <td>Security, platform optimisation</td>
-            </tr>
-            <tr>
-                <td>Usage Data</td>
-                <td>Pages visited, features used, time spent</td>
-                <td>Service improvement</td>
-            </tr>
-            <tr>
-                <td>Location Data</td>
-                <td>Parish, general location (when you grant permission)</td>
-                <td>Job matching, service delivery</td>
-            </tr>
-        </table>
-        
-        <h2>4. Legal Basis for Processing</h2>
-        <p>Under the Jamaica Data Protection Act 2020, we process your personal data based on the following lawful grounds:</p>
-        <ul>
-            <li><strong>Contract Performance:</strong> To provide our Platform services and fulfil our agreement with you</li>
-            <li><strong>Consent:</strong> Where you have given explicit consent (e.g., marketing communications)</li>
-            <li><strong>Legitimate Interests:</strong> To improve our services, prevent fraud, and ensure platform security</li>
-            <li><strong>Legal Obligation:</strong> To comply with Jamaican laws and regulations</li>
-        </ul>
-        
-        <h2>5. How We Use Your Data</h2>
-        <p>We use your personal data to:</p>
-        <ul>
-            <li>Create and manage your account</li>
-            <li>Verify Tradesman certifications (HEART Trust/NTA, NSTA)</li>
-            <li>Facilitate job posting and matching</li>
-            <li>Process payments through our payment partner (WiPay)</li>
-            <li>Enable communication between Residents and Tradesmen</li>
-            <li>Send service notifications via WhatsApp, SMS, or email</li>
-            <li>Respond to your enquiries and provide customer support</li>
-            <li>Prevent fraud and ensure platform security</li>
-            <li>Improve our Platform and develop new features</li>
-            <li>Comply with legal obligations</li>
-        </ul>
-        
-        <h2>6. Data Sharing</h2>
-        <p>We share your personal data only in the following circumstances:</p>
-        
-        <h3>6.1 With Other Users</h3>
-        <ul>
-            <li><strong>Residents can see:</strong> Tradesman name, profile photo, trade skills, ratings, verified certification status</li>
-            <li><strong>Tradesmen can see:</strong> Resident first name, job details, general location (parish)</li>
-            <li><strong>After booking confirmation:</strong> Contact details are shared to facilitate service delivery</li>
-        </ul>
-        <p><strong>Note:</strong> Your full address and phone number are NEVER shared until a deposit is confirmed.</p>
-        
-        <h3>6.2 With Service Providers</h3>
-        <table>
-            <tr>
-                <th>Provider</th>
-                <th>Purpose</th>
-                <th>Data Shared</th>
-            </tr>
-            <tr>
-                <td>WiPay Jamaica</td>
-                <td>Payment processing</td>
-                <td>Transaction details, payment information</td>
-            </tr>
-            <tr>
-                <td>Firebase (Google)</td>
-                <td>Authentication (OTP)</td>
-                <td>Phone number</td>
-            </tr>
-            <tr>
-                <td>Twilio</td>
-                <td>WhatsApp/SMS notifications</td>
-                <td>Phone number, message content</td>
-            </tr>
-            <tr>
-                <td>Vercel</td>
-                <td>Website hosting</td>
-                <td>Technical data (IP address, device info)</td>
-            </tr>
-            <tr>
-                <td>Supabase</td>
-                <td>Database hosting</td>
-                <td>All platform data (encrypted)</td>
-            </tr>
-        </table>
-        
-        <h3>6.3 Legal Requirements</h3>
-        <p>We may disclose your data if required by Jamaican law, court order, or government authority.</p>
-        
-        <h2>7. Data Security</h2>
-        <p>We implement appropriate technical and organisational measures to protect your personal data, including:</p>
-        <ul>
-            <li><strong>Encryption:</strong> All data transmitted via HTTPS/TLS 1.3</li>
-            <li><strong>Access Controls:</strong> Role-based access with strict authentication</li>
-            <li><strong>Database Security:</strong> Row-level security policies ensuring users can only access their own data</li>
-            <li><strong>Secure Authentication:</strong> Phone OTP verification with rate limiting</li>
-            <li><strong>Payment Security:</strong> PCI-DSS compliant payment processing through WiPay</li>
-            <li><strong>Regular Security Reviews:</strong> Ongoing monitoring and security assessments</li>
-        </ul>
-        
-        <div class="highlight-box">
-            <strong>Sensitive Data Protection:</strong> Tradesman verification documents (HEART certificates, TRN, National ID) are stored securely and are NEVER visible to Residents or the public.
-        </div>
-        
-        <h2>8. Data Retention</h2>
-        <p>We retain your personal data for as long as necessary to:</p>
-        <ul>
-            <li>Provide our services to you</li>
-            <li>Comply with legal obligations</li>
-            <li>Resolve disputes and enforce our agreements</li>
-        </ul>
-        <p>Retention periods:</p>
-        <table>
-            <tr>
-                <th>Data Type</th>
-                <th>Retention Period</th>
-            </tr>
-            <tr>
-                <td>Account data</td>
-                <td>Duration of account + 2 years after deletion</td>
-            </tr>
-            <tr>
-                <td>Transaction records</td>
-                <td>7 years (Jamaican tax requirements)</td>
-            </tr>
-            <tr>
-                <td>Job history and reviews</td>
-                <td>Duration of account + 2 years</td>
-            </tr>
-            <tr>
-                <td>Verification documents</td>
-                <td>Duration of account + 1 year</td>
-            </tr>
-            <tr>
-                <td>Usage/technical data</td>
-                <td>12 months</td>
-            </tr>
-        </table>
-        
-        <h2>9. Your Rights Under DPA 2020</h2>
-        <p>Under the Jamaica Data Protection Act 2020, you have the following rights:</p>
-        <ul>
-            <li><strong>Right of Access:</strong> Request a copy of your personal data</li>
-            <li><strong>Right to Rectification:</strong> Request correction of inaccurate data</li>
-            <li><strong>Right to Erasure:</strong> Request deletion of your data (subject to legal obligations)</li>
-            <li><strong>Right to Restrict Processing:</strong> Request limitation of how we use your data</li>
-            <li><strong>Right to Data Portability:</strong> Receive your data in a portable format</li>
-            <li><strong>Right to Object:</strong> Object to processing based on legitimate interests</li>
-            <li><strong>Right to Withdraw Consent:</strong> Withdraw consent at any time (where consent is the legal basis)</li>
-        </ul>
-        <p>To exercise any of these rights, contact us at <a href="mailto:privacy@iconnectja.net">privacy@iconnectja.net</a>. We will respond within 30 days.</p>
-        
-        <h2>10. Cookies and Tracking</h2>
-        <p>We use cookies and similar technologies to:</p>
-        <ul>
-            <li>Keep you logged in</li>
-            <li>Remember your preferences</li>
-            <li>Analyse how our Platform is used</li>
-            <li>Improve our services</li>
-        </ul>
-        <p>You can control cookies through your browser settings. Disabling cookies may affect Platform functionality.</p>
-        
-        <h2>11. International Data Transfers</h2>
-        <p>Some of our service providers operate outside Jamaica. When we transfer your data internationally, we ensure appropriate safeguards are in place, including:</p>
-        <ul>
-            <li>Standard contractual clauses</li>
-            <li>Data processing agreements</li>
-            <li>Encryption during transfer and storage</li>
-        </ul>
-        
-        <h2>12. Children's Privacy</h2>
-        <p>Our Platform is not intended for persons under 18 years of age. We do not knowingly collect personal data from children. If we become aware that we have collected data from a child, we will delete it promptly.</p>
-        
-        <h2>13. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by:</p>
-        <ul>
-            <li>Posting the updated policy on our Platform</li>
-            <li>Sending notification via WhatsApp, SMS, or email</li>
-            <li>Displaying a notice when you log in</li>
-        </ul>
-        <p>The "Effective Date" at the top indicates when the policy was last updated.</p>
-        
-        <h2>14. Complaints</h2>
-        <p>If you are dissatisfied with how we handle your personal data, you have the right to lodge a complaint with:</p>
-        <p>
-            <strong>Office of the Information Commissioner</strong><br>
-            Jamaica<br>
-            Website: <a href="https://oic.gov.jm" target="_blank" rel="noopener">oic.gov.jm</a>
-        </p>
-        <p>We encourage you to contact us first at <a href="mailto:privacy@iconnectja.net">privacy@iconnectja.net</a> so we can address your concerns directly.</p>
-        
-        <h2>15. Contact Us</h2>
-        <p>For any questions about this Privacy Policy or our data practices:</p>
-        <p>
-            <strong>iConnectJA Privacy Team</strong><br>
-            A trading name of Frontier Logistics Limited<br>
-            Email: <a href="mailto:privacy@iconnectja.net">privacy@iconnectja.net</a><br>
-            General Support: <a href="mailto:support@iconnectja.net">support@iconnectja.net</a><br>
-            Website: <a href="https://iconnectja.net">iconnectja.net</a>
-        </p>
-        
-        <div class="highlight-box green">
-            <strong>Your Privacy Matters:</strong> We are committed to transparency and protecting your personal data. If you have any questions or concerns about how we handle your information, please don't hesitate to contact us.
-        </div>
-    </main>
-    
-    <footer>
-        <p>&copy; 2026 iConnectJA. A trading name of Frontier Logistics Limited.</p>
-        <p style="margin-top: 0.5rem;">
-            <a href="/terms">Terms of Service</a> · <a href="/privacy">Privacy Policy</a> · <a href="mailto:support@iconnectja.net">Contact</a>
-        </p>
-    </footer>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">iConnect<span>JA</span> 🇯🇲</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/terms.html">Terms of Service</a>
+    <a href="https://wa.me/18765015017">WhatsApp Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="policy-hero">
+  <div class="badge">🔒 Legal Document</div>
+  <h1>Privacy Policy</h1>
+  <p>How iConnectJA collects, uses, and protects your personal data — in plain English.</p>
+  <div class="policy-meta">
+    <div class="meta-item"><strong>Effective Date</strong>April 12, 2026</div>
+    <div class="meta-item"><strong>Last Updated</strong>April 12, 2026</div>
+    <div class="meta-item"><strong>Jurisdiction</strong>Jamaica, W.I.</div>
+    <div class="meta-item"><strong>Law</strong>DPA 2020</div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="policy-container">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h3>📋 Contents</h3>
+    <ol>
+      <li><a href="#who-we-are">Who We Are</a></li>
+      <li><a href="#data-we-collect">Data We Collect</a></li>
+      <li><a href="#how-we-use">How We Use Your Data</a></li>
+      <li><a href="#sharing">Who We Share Data With</a></li>
+      <li><a href="#retention">How Long We Keep Data</a></li>
+      <li><a href="#your-rights">Your Rights (DPA 2020)</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#minors">Minors</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ol>
+  </div>
+
+  <div class="highlight-box">
+    <strong>Plain English Summary:</strong> We collect your phone number to verify you are real. We collect your job details to match you with tradesmen. We never sell your data. We hide your contact info until a payment is made. You can delete your account at any time.
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="policy-section" id="who-we-are">
+    <h2>1. Who We Are</h2>
+    <p>iConnectJA is a trading name of <strong>Frontier Logistics Limited</strong>, a company registered in Jamaica under the Companies Office of Jamaica (COJ).</p>
+    <p>We operate the platform at <strong>iconnectja.net</strong> — Jamaica's first verified trades marketplace — connecting homeowners and residents with HEART/NSTA certified tradesmen island-wide.</p>
+    <p>For the purposes of the <strong>Data Protection Act 2020 (Jamaica)</strong>, Frontier Logistics Limited is the <strong>Data Controller</strong> responsible for your personal data.</p>
+    <p><strong>Registered Address:</strong> Jamaica, W.I.<br>
+    <strong>Contact:</strong> <a href="mailto:hello@iconnectja.net">hello@iconnectja.net</a><br>
+    <strong>WhatsApp:</strong> +1 (876) 501-5017</p>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="policy-section" id="data-we-collect">
+    <h2>2. Data We Collect</h2>
+
+    <h3>2.1 Data You Give Us Directly</h3>
+    <table class="data-table">
+      <thead>
+        <tr><th>Data Type</th><th>Who Provides It</th><th>Why We Need It</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Name</td><td>All users</td><td>Identity and platform communications</td></tr>
+        <tr><td>Phone number (+1 876)</td><td>All users</td><td>Verification via OTP; job notifications via WhatsApp</td></tr>
+        <tr><td>Parish and address</td><td>Residents posting jobs</td><td>Match you with tradesmen in your area</td></tr>
+        <tr><td>Job descriptions and photos</td><td>Residents posting jobs</td><td>Display your job to relevant tradesmen</td></tr>
+        <tr><td>Trade, HEART/NSTA certificate</td><td>Tradesmen registering</td><td>Verify credentials before approving profile</td></tr>
+        <tr><td>Profile photo</td><td>Tradesmen (optional)</td><td>Display on public tradesman profile</td></tr>
+        <tr><td>Payment information</td><td>Residents paying for jobs</td><td>Process secure deposits via WiPay Jamaica</td></tr>
+        <tr><td>Reviews and ratings</td><td>Residents after jobs</td><td>Build trust and accountability on the platform</td></tr>
+      </tbody>
+    </table>
+
+    <h3>2.2 Data Collected Automatically</h3>
+    <ul>
+      <li>IP address (for security monitoring and fraud prevention)</li>
+      <li>Device type and browser (for platform compatibility)</li>
+      <li>Pages visited and time spent (for improving user experience)</li>
+      <li>Error logs (for fixing bugs — sent to Sentry, our error tracking service)</li>
+    </ul>
+
+    <h3>2.3 Data We Do NOT Collect</h3>
+    <ul>
+      <li>We do <strong>not</strong> store raw credit card or bank account numbers</li>
+      <li>We do <strong>not</strong> collect TRN (Tax Registration Numbers)</li>
+      <li>We do <strong>not</strong> collect NIN (National Identification Numbers)</li>
+      <li>We do <strong>not</strong> use facial recognition or biometric data</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="policy-section" id="how-we-use">
+    <h2>3. How We Use Your Data</h2>
+    <ul>
+      <li><strong>To operate the platform</strong> — matching residents with tradesmen, managing job postings and bids</li>
+      <li><strong>To verify identity</strong> — Firebase OTP phone verification confirms you are real before you can post or bid</li>
+      <li><strong>To verify tradesman credentials</strong> — we manually review HEART/NSTA certificate uploads before approving profiles</li>
+      <li><strong>To process payments</strong> — WiPay Jamaica handles all payment processing; we store transaction records only</li>
+      <li><strong>To send notifications</strong> — job alerts, bid updates, and payment confirmations via WhatsApp (Twilio)</li>
+      <li><strong>To protect against fraud</strong> — we monitor for fake accounts, fraudulent certificates, and suspicious activity</li>
+      <li><strong>To comply with law</strong> — we retain records as required by Jamaican law, including for tax purposes</li>
+      <li><strong>To improve the platform</strong> — analysing usage patterns to build better features</li>
+    </ul>
+
+    <div class="highlight-box">
+      <strong>Legal Basis (DPA 2020):</strong> We process your data under the following lawful bases: (a) Contract — to provide the service you signed up for; (b) Legitimate Interests — fraud prevention and platform security; (c) Legal Obligation — tax and regulatory compliance; (d) Consent — for marketing communications (you can withdraw this at any time).
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="policy-section" id="sharing">
+    <h2>4. Who We Share Data With</h2>
+    <p>We do not sell your personal data. We share it only in the following limited circumstances:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>Recipient</th><th>What We Share</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Matched tradesmen</td><td>Job description, parish, budget range</td><td>So they can submit a bid. Your full address and phone are hidden until you approve a bid AND a deposit is paid.</td></tr>
+        <tr><td>Residents (after payment)</td><td>Tradesman's verified phone number</td><td>So both parties can coordinate the job. Only released after deposit is confirmed.</td></tr>
+        <tr><td>WiPay Jamaica</td><td>Payment amount, transaction reference</td><td>Payment processing. WiPay is PCI-DSS compliant.</td></tr>
+        <tr><td>Firebase (Google)</td><td>Phone number for OTP verification</td><td>Authentication only. Firebase does not have access to your job data.</td></tr>
+        <tr><td>Twilio</td><td>Phone number for WhatsApp/SMS</td><td>Sending you notifications. Message content only — no financial data.</td></tr>
+        <tr><td>Cloudflare R2</td><td>Uploaded images and certificates</td><td>Secure file storage. Files are private by default.</td></tr>
+        <tr><td>Sentry</td><td>Error logs (anonymised)</td><td>Bug tracking. No personal data is sent in error logs.</td></tr>
+        <tr><td>Jamaican authorities</td><td>As legally required</td><td>Compliance with valid legal orders, court orders, or regulatory requirements.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="policy-section" id="retention">
+    <h2>5. How Long We Keep Your Data</h2>
+    <table class="data-table">
+      <thead>
+        <tr><th>Data Type</th><th>Retention Period</th><th>Reason</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Account data (name, phone, parish)</td><td>Until account deletion + 30 days</td><td>Account operation</td></tr>
+        <tr><td>Job posting records</td><td>3 years after job completion</td><td>Dispute resolution</td></tr>
+        <tr><td>Payment transaction records</td><td>7 years</td><td>Jamaican tax law requirement</td></tr>
+        <tr><td>HEART/NSTA certificate images</td><td>Duration of active profile + 6 months</td><td>Verification audit trail</td></tr>
+        <tr><td>Reviews and ratings</td><td>Permanently (anonymised after account deletion)</td><td>Platform integrity</td></tr>
+        <tr><td>Security and access logs</td><td>90 days</td><td>Fraud investigation</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="policy-section" id="your-rights">
+    <h2>6. Your Rights Under the Data Protection Act 2020</h2>
+    <p>As a Jamaican resident, you have the following rights under the Data Protection Act 2020:</p>
+    <ul>
+      <li><strong>Right to Access</strong> — Request a copy of the personal data we hold about you</li>
+      <li><strong>Right to Correction</strong> — Request correction of inaccurate or incomplete data</li>
+      <li><strong>Right to Erasure</strong> — Request deletion of your account and associated data (subject to legal retention obligations)</li>
+      <li><strong>Right to Restrict Processing</strong> — Ask us to limit how we use your data in certain circumstances</li>
+      <li><strong>Right to Object</strong> — Object to processing based on our legitimate interests</li>
+      <li><strong>Right to Withdraw Consent</strong> — Withdraw consent for marketing at any time</li>
+      <li><strong>Right to Lodge a Complaint</strong> — Complain to the Office of the Information Commissioner (OIC) of Jamaica</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:hello@iconnectja.net">hello@iconnectja.net</a> or via WhatsApp at +1 (876) 501-5017. We will respond within <strong>30 days</strong>.</p>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="policy-section" id="security">
+    <h2>7. Security</h2>
+    <p>We take data security seriously and have implemented the following protections:</p>
+    <ul>
+      <li><strong>HTTPS / TLS 1.3</strong> — All data in transit is encrypted (Vercel auto-SSL)</li>
+      <li><strong>Phone OTP verification</strong> — No passwords that can be stolen; all logins verified by your phone</li>
+      <li><strong>Contact info hidden by default</strong> — Your phone number and address are never shown to tradesmen until a deposit is confirmed</li>
+      <li><strong>Row-Level Security</strong> — Our database (Supabase PostgreSQL) enforces strict access rules: you can only access your own data</li>
+      <li><strong>Private file storage</strong> — HEART/NSTA certificates are stored in a private bucket; they cannot be accessed via a public URL</li>
+      <li><strong>Rate limiting</strong> — OTP requests and all API calls are rate-limited to prevent abuse</li>
+      <li><strong>Audit logging</strong> — All admin actions are logged with timestamp and IP address</li>
+    </ul>
+    <p>In the event of a data breach, we will notify affected users and the Office of the Information Commissioner within <strong>72 hours</strong> as required by DPA 2020.</p>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="policy-section" id="cookies">
+    <h2>8. Cookies</h2>
+    <p>We use the following types of cookies and local storage:</p>
+    <ul>
+      <li><strong>Essential cookies</strong> — Required for the platform to function (session management, security tokens). You cannot opt out of these.</li>
+      <li><strong>Analytics cookies</strong> — We use privacy-respecting analytics to understand how people use the platform. You may opt out via your browser settings.</li>
+    </ul>
+    <p>We do <strong>not</strong> use advertising cookies or share cookie data with third-party advertisers.</p>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="policy-section" id="minors">
+    <h2>9. Minors</h2>
+    <p>iConnectJA is intended for users aged <strong>18 and over</strong>. We do not knowingly collect personal data from anyone under 18. If you believe a minor has created an account, please contact us immediately at <a href="mailto:hello@iconnectja.net">hello@iconnectja.net</a> and we will delete the account.</p>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="policy-section" id="changes">
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time as the platform evolves. When we make significant changes, we will notify you by:</p>
+    <ul>
+      <li>Sending a WhatsApp notification to your registered number</li>
+      <li>Displaying a prominent banner on iconnectja.net</li>
+      <li>Updating the "Last Updated" date at the top of this page</li>
+    </ul>
+    <p>Your continued use of iConnectJA after changes are posted constitutes your acceptance of the updated policy.</p>
+  </div>
+
+  <!-- SECTION 11 -->
+  <div class="policy-section" id="contact">
+    <h2>11. Contact Us</h2>
+    <p>For any privacy-related questions, data requests, or complaints:</p>
+    <div class="contact-card">
+      <h3>Get in Touch — We Respond Same Day</h3>
+      <p>Privacy questions? Data requests? We're here. WhatsApp is the fastest.</p>
+      <a href="https://wa.me/18765015017?text=Privacy%20enquiry%20re%20iConnectJA">💬 WhatsApp Us</a>
+      <br><br>
+      <a href="mailto:hello@iconnectja.net" style="background:transparent; border:1px solid rgba(255,255,255,0.4); color:white; margin-top:0.5rem;">📧 hello@iconnectja.net</a>
+    </div>
+    <p style="margin-top:1.5rem; color: var(--muted); font-size:0.85rem;">You also have the right to lodge a complaint with the <strong>Office of the Information Commissioner (OIC) of Jamaica</strong> if you are not satisfied with our response.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 iConnectJA — a trading name of Frontier Logistics Limited. Registered in Jamaica. 🇯🇲</p>
+  <p style="margin-top:0.5rem;"><a href="/">Home</a> &nbsp;·&nbsp; <a href="/terms.html">Terms of Service</a> &nbsp;·&nbsp; <a href="mailto:hello@iconnectja.net">hello@iconnectja.net</a></p>
+</footer>
+
 </body>
 </html>
